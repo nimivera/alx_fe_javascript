@@ -37,11 +37,8 @@ function addQuote(event) {
 document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("newQuote").addEventListener("click", showRandomQuote);
 
-  // Create event listener for the add quote form
   const addQuoteForm = document.getElementById("addQuoteForm");
-  if (addQuoteForm) {
-    addQuoteForm.addEventListener("submit", addQuote);
-  }
+  addQuoteForm.addEventListener("submit", addQuote);
 
   showRandomQuote();
 });
