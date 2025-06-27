@@ -1,21 +1,46 @@
-<!-- index.html -->
-
-<!DOCTYPE html>
+<!DOCTYPE html>More actions
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dynamic Quote Generator</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h1>Dynamic Quote Generator</h1>
   <div id="quoteDisplay"></div>
   <button id="newQuote">Show New Quote</button>
-  <form id="addQuoteForm">
+
+  <div>
     <input id="newQuoteText" type="text" placeholder="Enter a new quote" />
     <input id="newQuoteCategory" type="text" placeholder="Enter quote category" />
-    <button type="submit">Add Quote</button>
-  </form>
+    <button onclick="addQuote()">Add Quote</button>
+  </div>
+  <div class="container">
+
+    <div class="app">
+
+     <h1>Dynamic Quote Generator</h1>
+      <div id="quoteDisplay"></div>
+      <button id="newQuote">Show New Quote</button>
+
+  <input type="file" id="importFile" accept=".json" onchange="importFromJsonFile(event)" />
+  <button onclick="exportToJsonFile()">Export Quotes</button>
+      <div class="quote-form">
+        <input id="newQuoteText" type="text" placeholder="Enter a new quote" />
+        <input id="newQuoteCategory" type="text" placeholder="Enter quote category" />
+        <button onclick="addQuote()">Add Quote</button>
+      </div>
+
+      <div class="quote-controls">
+        <input type="file" id="importFile" accept=".json" onchange="importFromJsonFile(event)" />
+        <button onclick="exportToJsonFile()">Export Quotes</button>
+      </div>
+      
+    </div>
+
+  </div>
+  
   <script src="script.js"></script>
 </body>
 </html>
