@@ -11,14 +11,18 @@ let quotes = [
   // Function to display a random quote
   function showRandomQuote() {
     const quoteDisplay = document.getElementById("quoteDisplay");
-    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-    quoteDisplay.innerHTML = `<p>${randomQuote.text}</p><p>Category: ${randomQuote.category}</p>`;
+    if (quotes.length > 0) {
+      const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+      quoteDisplay.innerHTML = `<p>${randomQuote.text}</p><p>Category: ${randomQuote.category}</p>`;
+    } else {
+      quoteDisplay.innerHTML = "No quotes available.";
+    }
   }
   
   // Function to add a new quote
   function addQuote() {
-    const newQuoteText = document.getElementById("newQuoteText").value;
-    const newQuoteCategory = document.getElementById("newQuoteCategory").value;
+    const newQuoteText = document.getElementById("newQuoteText").value.trim();
+    const newQuoteCategory = document.getElementById("newQuoteCategory").value.trim();
   
     if (newQuoteText && newQuoteCategory) {
       quotes.push({ text: newQuoteText, category: newQuoteCategory });
@@ -31,7 +35,7 @@ let quotes = [
   }
   
   // Event listener for the "Show New Quote" button
-  document.getElementById("newQuote").addEventListener("click", showRandomQuote);
-  
-  // Initialize the quote display
-  showRandomQuote();
+  document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("newQuote").addEventListener("click", showRandomQuote);
+    showRandomQuote();
+  });
