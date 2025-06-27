@@ -24,7 +24,8 @@ function addQuote(event) {
   const newQuoteCategory = document.getElementById("newQuoteCategory").value.trim();
 
   if (newQuoteText && newQuoteCategory) {
-    quotes.push({ text: newQuoteText, category: newQuoteCategory });
+    const newQuote = { text: newQuoteText, category: newQuoteCategory };
+    quotes.push(newQuote);
     document.getElementById("newQuoteText").value = "";
     document.getElementById("newQuoteCategory").value = "";
     showRandomQuote();
@@ -33,9 +34,10 @@ function addQuote(event) {
   }
 }
 
-// Event listener for the "Show New Quote" button
+// Event listener for the "Show New Quote" button and add quote form
 document.addEventListener("DOMContentLoaded", function () {
-  document.getElementById("newQuote").addEventListener("click", showRandomQuote);
+  const newQuoteButton = document.getElementById("newQuote");
+  newQuoteButton.addEventListener("click", showRandomQuote);
 
   const addQuoteForm = document.getElementById("addQuoteForm");
   addQuoteForm.addEventListener("submit", addQuote);
